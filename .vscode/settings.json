@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "stat_fncs.h": "c",
+        "defs.h": "c",
+        "math.h": "c",
+        "externs.h": "c",
+        "erf.h": "c"
+    }
+}
