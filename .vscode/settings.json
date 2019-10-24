@@ -4,6 +4,9 @@
         "defs.h": "c",
         "math.h": "c",
         "externs.h": "c",
-        "erf.h": "c"
+        "erf.h": "c",
+        "decls.h": "c",
+        "generators.h": "c",
+        "utilities.h": "c"
     }
 }

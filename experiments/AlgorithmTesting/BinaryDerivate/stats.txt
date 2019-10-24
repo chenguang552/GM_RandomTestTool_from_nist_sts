@@ -3,88 +3,88 @@
 		COMPUTATIONAL INFORMATION:
 		---------------------------------------------
 		(a) k value = 3
-		(b) n value = 1000000
+		(b) n value = 100
 		---------------------------------------------
-SUCCESS		p_value = 0.956138
+SUCCESS		p_value = 0.760668
 
 			      BINARYDERIVATE TEST
 		---------------------------------------------
 		COMPUTATIONAL INFORMATION:
 		---------------------------------------------
 		(a) k value = 3
-		(b) n value = 1000000
+		(b) n value = 100
 		---------------------------------------------
-SUCCESS		p_value = 0.650548
+SUCCESS		p_value = 0.477244
 
 			      BINARYDERIVATE TEST
 		---------------------------------------------
 		COMPUTATIONAL INFORMATION:
 		---------------------------------------------
 		(a) k value = 3
-		(b) n value = 1000000
+		(b) n value = 100
 		---------------------------------------------
-SUCCESS		p_value = 0.916376
+SUCCESS		p_value = 0.477244
 
 			      BINARYDERIVATE TEST
 		---------------------------------------------
 		COMPUTATIONAL INFORMATION:
 		---------------------------------------------
 		(a) k value = 3
-		(b) n value = 1000000
+		(b) n value = 100
 		---------------------------------------------
-SUCCESS		p_value = 0.900523
+SUCCESS		p_value = 0.611683
 
 			      BINARYDERIVATE TEST
 		---------------------------------------------
 		COMPUTATIONAL INFORMATION:
 		---------------------------------------------
 		(a) k value = 3
-		(b) n value = 1000000
+		(b) n value = 100
 		---------------------------------------------
-SUCCESS		p_value = 0.437158
+SUCCESS		p_value = 0.360816
 
 			      BINARYDERIVATE TEST
 		---------------------------------------------
 		COMPUTATIONAL INFORMATION:
 		---------------------------------------------
 		(a) k value = 3
-		(b) n value = 1000000
+		(b) n value = 100
 		---------------------------------------------
-SUCCESS		p_value = 0.917963
+SUCCESS		p_value = 0.477244
 
 			      BINARYDERIVATE TEST
 		---------------------------------------------
 		COMPUTATIONAL INFORMATION:
 		---------------------------------------------
 		(a) k value = 3
-		(b) n value = 1000000
+		(b) n value = 100
 		---------------------------------------------
-SUCCESS		p_value = 0.986437
+SUCCESS		p_value = 0.032988
 
 			      BINARYDERIVATE TEST
 		---------------------------------------------
 		COMPUTATIONAL INFORMATION:
 		---------------------------------------------
 		(a) k value = 3
-		(b) n value = 1000000
+		(b) n value = 100
 		---------------------------------------------
-SUCCESS		p_value = 0.553181
+SUCCESS		p_value = 0.611683
 
 			      BINARYDERIVATE TEST
 		---------------------------------------------
 		COMPUTATIONAL INFORMATION:
 		---------------------------------------------
 		(a) k value = 3
-		(b) n value = 1000000
+		(b) n value = 100
 		---------------------------------------------
-SUCCESS		p_value = 0.331548
+SUCCESS		p_value = 0.611683
 
 			      BINARYDERIVATE TEST
 		---------------------------------------------
 		COMPUTATIONAL INFORMATION:
 		---------------------------------------------
 		(a) k value = 3
-		(b) n value = 1000000
+		(b) n value = 100
 		---------------------------------------------
-SUCCESS		p_value = 0.065621
+SUCCESS		p_value = 0.053711
 

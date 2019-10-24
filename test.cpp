@@ -14,12 +14,12 @@ int main()
     result.append("\\experiments\\algorithmTesting\\finalAnalysisReport.txt");
     // printf(result.c_str());
 
-    int b = 1000000;      // data block size , !<10000
+    int b = 100;      // data block size , !<10000
     int s = 10;         // stream num, every stream is a block ( b )
     int t = 1;          // data type 0 - ascii , 1 - binary
-    std::string f = "all.bin";
+    std::string f = "rand.bin";
     char assess[1024] = { 0 };
-    sprintf(assess, "assess.exe %d %s %d %d", b, f.c_str(), s, t);
+    sprintf(assess, "assess.exe %d %d %d %s .", b, s, t, f.c_str());
     system(assess);
     // system(result.c_str());
 

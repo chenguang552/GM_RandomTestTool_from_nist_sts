@@ -51,8 +51,8 @@
 #include "../include/cephes.h"  
 #include "../include/utilities.h"
 
-void	partitionResultFile(int numOfFiles, int numOfSequences, int option, int testNameID);
-void	postProcessResults(int option);
+void	partitionResultFile(int numOfFiles, int numOfSequences, int option, int testNameID, char* dir);
+void	postProcessResults(int option, char* dir);
 int		cmp(const double *a, const double *b);
 int		computeMetrics(char *s, int test);
 
@@ -63,7 +63,6 @@ main(int argc, char *argv[])
 	int		option;			/* TEMPLATE LENGTH/STREAM LENGTH/GENERATOR*/
 	char	*streamFile;	/* STREAM FILENAME     */
 	
-
 	// if ( argc != 2 ) {
 	// 	printf("Usage: %s <stream length>\n", argv[0]);
 	// 	printf("   <stream length> is the length of the individual bit stream(s) to be processed\n");
@@ -71,25 +70,43 @@ main(int argc, char *argv[])
 	// }
 
 	// 创建检测报告文件结构
-	if((_access("experiments", 0 )) != 0)
+	char outDir[256] = {0};
+	int arg5DirLen = strlen(argv[5]);
+	// memcpy(outDir, argv[5], arg5DirLen);
+	// memcpy(outDir+arg5DirLen, "//experiments", strlen("//experiments"));
+	if((_access(argv[5], 0 )) != 0)
 	{
-		if(!_mkdir("experiments"))
-		 	printf("create dir experiments\n");
+		if(!_mkdir(argv[5]))
+		 	printf("create dir %s\n", argv[5]);
 		
 	}
-	if((_access("experiments/AlgorithmTesting", 0 )) != 0)
+
+	memset(outDir, 0x0, 256);
+	sprintf(outDir, "%s//experiments",argv[5]);
+	if((_access(outDir, 0 )) != 0)
 	{
-		if(!_mkdir("experiments/AlgorithmTesting"))
-			printf("create dir experiments/AlgorithmTesting\n");
+		if(!_mkdir(outDir))
+		 	printf("create dir %s//experiments\n",argv[5]);
+		
+	}
+
+	memset(outDir, 0x0, 256);
+	sprintf(outDir, "%s//experiments//AlgorithmTesting",argv[5]);
+	if((_access(outDir, 0 )) != 0)
+	{
+		if(!_mkdir(outDir))
+			printf("create dir %s//experiments//AlgorithmTesting\n",argv[5]);
 	}		
+
 	for(i=1; i<=NUMOFTESTS; i++)
 	{
-		char dirBuf[200] = {0};
-		sprintf(dirBuf, "experiments/AlgorithmTesting/%s",testNames[i]);
-		if((_access(dirBuf, 0 )) != 0)
+		memset(outDir, 0x0, 256);
+		sprintf(outDir, "%s//experiments//AlgorithmTesting//%s", argv[5], testNames[i]);
+
+		if((_access(outDir, 0 )) != 0)
 		{
-			if(!_mkdir(dirBuf))
-				printf("create dir %s\n", dirBuf);
+			if(!_mkdir(outDir))
+				printf("create dir %s\n", outDir);
 		}
 	}
 
@@ -109,11 +126,11 @@ main(int argc, char *argv[])
 	tp.selfCorrelationDValue = 8;
 
 	tp.numOfBitStreams = 1;
-	option = generatorOptions(argv[2],&streamFile);
+	option = generatorOptions(argv[4],&streamFile);
 	chooseTests();
 	// fixParameters();
-	openOutputStreams(option, atoi(argv[3]));
-	invokeTestSuite(option, streamFile, atoi(argv[4]));
+	openOutputStreams(option, atoi(argv[2]), argv[5]);
+	invokeTestSuite(option, streamFile, atoi(argv[3]));
 	fclose(freqfp);
 	for( i=1; i<=NUMOFTESTS; i++ ) {
 		if ( stats[i] != NULL )
@@ -122,30 +139,31 @@ main(int argc, char *argv[])
 			fclose(results[i]);
 	}
 	if ( (testVector[0] == 1) || (testVector[TEST_CUSUM] == 1) ) 
-		partitionResultFile(2, tp.numOfBitStreams, option, TEST_CUSUM);
+		partitionResultFile(2, tp.numOfBitStreams, option, TEST_CUSUM, argv[5]);
 	if ( (testVector[0] == 1) || (testVector[TEST_NONPERIODIC] == 1) ) 
-		partitionResultFile(MAXNUMOFTEMPLATES, tp.numOfBitStreams, option, TEST_NONPERIODIC);
+		partitionResultFile(MAXNUMOFTEMPLATES, tp.numOfBitStreams, option, TEST_NONPERIODIC, argv[5]);
 	if ( (testVector[0] == 1) || (testVector[TEST_RND_EXCURSION] == 1) )
-		partitionResultFile(8, tp.numOfBitStreams, option, TEST_RND_EXCURSION);
+		partitionResultFile(8, tp.numOfBitStreams, option, TEST_RND_EXCURSION, argv[5]);
 	if ( (testVector[0] == 1) || (testVector[TEST_RND_EXCURSION_VAR] == 1) )
-		partitionResultFile(18, tp.numOfBitStreams, option, TEST_RND_EXCURSION_VAR);
+		partitionResultFile(18, tp.numOfBitStreams, option, TEST_RND_EXCURSION_VAR, argv[5]);
 	if ( (testVector[0] == 1) || (testVector[TEST_SERIAL] == 1) )
-		partitionResultFile(2, tp.numOfBitStreams, option, TEST_SERIAL);
+		partitionResultFile(2, tp.numOfBitStreams, option, TEST_SERIAL, argv[5]);
 	fprintf(summary, "------------------------------------------------------------------------------\n");
 	fprintf(summary, "RESULTS FOR THE UNIFORMITY OF P-VALUES AND THE PROPORTION OF PASSING SEQUENCES\n");
 	fprintf(summary, "------------------------------------------------------------------------------\n");
 	fprintf(summary, "   generator is <%s>\n", streamFile);
 	fprintf(summary, "------------------------------------------------------------------------------\n");
-	fprintf(summary, " C1  C2  C3  C4  C5  C6  C7  C8  C9 C10  P-VALUE  PROPORTION  STATISTICAL TEST\n");
+	fprintf(summary, " C1  C2  C3  C4  C5  C6  C7  C8  C9 C10  P-VALUE  PROPORTION    USETIME    STATISTICAL TEST\n");
 	fprintf(summary, "------------------------------------------------------------------------------\n");
-	postProcessResults(option);
+	postProcessResults(option, argv[5]);
 	fclose(summary);
 
+	// system("pause");
 	return 1;
 }
 
 void
-partitionResultFile(int numOfFiles, int numOfSequences, int option, int testNameID)
+partitionResultFile(int numOfFiles, int numOfSequences, int option, int testNameID, char* dir)
 { 
 	int		i, k, m, j, start, end, num, numread;
 	float	c;
@@ -157,7 +175,7 @@ partitionResultFile(int numOfFiles, int numOfSequences, int option, int testName
 	for ( i=0; i<MAXFILESPERMITTEDFORPARTITION; i++ )
 		s[i] = (char*)calloc(200, sizeof(char));
 	
-	sprintf(resultsDir, "experiments/%s/%s/results.txt", generatorDir[option], testNames[testNameID]);
+	sprintf(resultsDir, "%s\\experiments\\%s\\%s\\results.txt", dir, generatorDir[option], testNames[testNameID]);
 	
 	if ( (fp[numOfFiles] = fopen(resultsDir, "r")) == NULL ) {
 		printf("%s", resultsDir);
@@ -167,11 +185,11 @@ partitionResultFile(int numOfFiles, int numOfSequences, int option, int testName
 	
 	for ( i=0; i<numOfFiles; i++ ) {
 		if ( i < 10 )
-			sprintf(s[i], "experiments/%s/%s/data%1d.txt", generatorDir[option], testNames[testNameID], i+1);
+			sprintf(s[i], "%s\\experiments\\%s\\%s\\data%1d.txt", dir, generatorDir[option], testNames[testNameID], i+1);
 		else if (i < 100)
-			sprintf(s[i], "experiments/%s/%s/data%2d.txt", generatorDir[option], testNames[testNameID], i+1);
+			sprintf(s[i], "%s\\experiments\\%s\\%s\\data%2d.txt", dir, generatorDir[option], testNames[testNameID], i+1);
 		else
-			sprintf(s[i], "experiments/%s/%s/data%3d.txt", generatorDir[option], testNames[testNameID], i+1);
+			sprintf(s[i], "%s\\experiments\\%s\\%s\\data%3d.txt", dir, generatorDir[option], testNames[testNameID], i+1);
 	}
 	numread = 0;
 	m = numOfFiles/20;
@@ -229,7 +247,7 @@ cmp(const double *a, const double *b)
 }
 
 void
-postProcessResults(int option)
+postProcessResults(int option, char* dir)
 {
 	int		i, k, randomExcursionSampleSize, generalSampleSize;
 	int		passRate, case1, case2, numOfFiles = 2;
@@ -255,11 +273,11 @@ postProcessResults(int option)
 					numOfFiles = 2;
 				for ( k=0; k<numOfFiles; k++ ) {
 					if ( k < 10 )
-						sprintf(s, "experiments/%s/%s/data%1d.txt", generatorDir[option], testNames[i], k+1);
+						sprintf(s, "%s\\experiments\\%s\\%s\\data%1d.txt", dir, generatorDir[option], testNames[i], k+1);
 					else if ( k < 100 )
-						sprintf(s, "experiments/%s/%s/data%2d.txt", generatorDir[option], testNames[i], k+1);
+						sprintf(s, "%s\\experiments\\%s\\%s\\data%2d.txt", dir, generatorDir[option], testNames[i], k+1);
 					else
-						sprintf(s, "experiments/%s/%s/data%3d.txt", generatorDir[option], testNames[i], k+1);
+						sprintf(s, "%s\\experiments\\%s\\%s\\data%3d.txt", dir, generatorDir[option], testNames[i], k+1);
 					if ( (i == TEST_RND_EXCURSION) || (i == TEST_RND_EXCURSION_VAR) ) 
 						randomExcursionSampleSize = computeMetrics(s,i);
 					else
@@ -267,7 +285,7 @@ postProcessResults(int option)
 				}
 			}
 			else {
-				sprintf(s, "experiments/%s/%s/results.txt", generatorDir[option], testNames[i]);
+				sprintf(s, "%s\\experiments\\%s\\%s\\results.txt", dir, generatorDir[option], testNames[i]);
 				generalSampleSize = computeMetrics(s,i);
 			}
 		}
@@ -416,9 +434,9 @@ computeMetrics(char *s, int test)
 		fprintf(summary, " ------     %s\n", testNames[test]);
 	//	else if ( proportion < 0.96 )
 	else if ( (passCount < proportion_threshold_min) || (passCount > proportion_threshold_max))
-		fprintf(summary, "%4d/%-4d *  %s\n", passCount, sampleSize, testNames[test]);
+		fprintf(summary, "%4d/%-4d % 7.0fms  * %s\n", passCount, sampleSize, useTime[test], testNames[test]);
 	else
-		fprintf(summary, "%4d/%-4d    %s\n", passCount, sampleSize, testNames[test]);
+		fprintf(summary, "%4d/%-4d % 7.0fms    %s\n", passCount, sampleSize, useTime[test], testNames[test]);
 	
 	fclose(fp);
 	free(A);

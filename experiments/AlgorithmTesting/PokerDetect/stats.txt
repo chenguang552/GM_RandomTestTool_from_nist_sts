@@ -3,88 +3,88 @@
 		COMPUTATIONAL INFORMATION:
 		---------------------------------------------
 		(a) M value = 8
-		(b) n value = 1000000
+		(b) n value = 100
 		---------------------------------------------
-SUCCESS		p_value = 0.457051
+SUCCESS		p_value = 0.678905
 
 			      POKERDETECT TEST
 		---------------------------------------------
 		COMPUTATIONAL INFORMATION:
 		---------------------------------------------
 		(a) M value = 8
-		(b) n value = 1000000
+		(b) n value = 100
 		---------------------------------------------
-SUCCESS		p_value = 0.942871
+SUCCESS		p_value = 0.084212
 
 			      POKERDETECT TEST
 		---------------------------------------------
 		COMPUTATIONAL INFORMATION:
 		---------------------------------------------
 		(a) M value = 8
-		(b) n value = 1000000
+		(b) n value = 100
 		---------------------------------------------
-SUCCESS		p_value = 0.051708
+SUCCESS		p_value = 0.678905
 
 			      POKERDETECT TEST
 		---------------------------------------------
 		COMPUTATIONAL INFORMATION:
 		---------------------------------------------
 		(a) M value = 8
-		(b) n value = 1000000
+		(b) n value = 100
 		---------------------------------------------
-SUCCESS		p_value = 0.885213
+SUCCESS		p_value = 0.678905
 
 			      POKERDETECT TEST
 		---------------------------------------------
 		COMPUTATIONAL INFORMATION:
 		---------------------------------------------
 		(a) M value = 8
-		(b) n value = 1000000
+		(b) n value = 100
 		---------------------------------------------
-SUCCESS		p_value = 0.340826
+SUCCESS		p_value = 0.678905
 
 			      POKERDETECT TEST
 		---------------------------------------------
 		COMPUTATIONAL INFORMATION:
 		---------------------------------------------
 		(a) M value = 8
-		(b) n value = 1000000
+		(b) n value = 100
 		---------------------------------------------
-SUCCESS		p_value = 0.466375
+SUCCESS		p_value = 0.084212
 
 			      POKERDETECT TEST
 		---------------------------------------------
 		COMPUTATIONAL INFORMATION:
 		---------------------------------------------
 		(a) M value = 8
-		(b) n value = 1000000
+		(b) n value = 100
 		---------------------------------------------
-SUCCESS		p_value = 0.782740
+SUCCESS		p_value = 0.084212
 
 			      POKERDETECT TEST
 		---------------------------------------------
 		COMPUTATIONAL INFORMATION:
 		---------------------------------------------
 		(a) M value = 8
-		(b) n value = 1000000
+		(b) n value = 100
 		---------------------------------------------
-SUCCESS		p_value = 0.362172
+SUCCESS		p_value = 0.678905
 
 			      POKERDETECT TEST
 		---------------------------------------------
 		COMPUTATIONAL INFORMATION:
 		---------------------------------------------
 		(a) M value = 8
-		(b) n value = 1000000
+		(b) n value = 100
 		---------------------------------------------
-SUCCESS		p_value = 0.294336
+FAILURE		p_value = 0.001160
 
 			      POKERDETECT TEST
 		---------------------------------------------
 		COMPUTATIONAL INFORMATION:
 		---------------------------------------------
 		(a) M value = 8
-		(b) n value = 1000000
+		(b) n value = 100
 		---------------------------------------------
-SUCCESS		p_value = 0.060880
+SUCCESS		p_value = 0.678905
 

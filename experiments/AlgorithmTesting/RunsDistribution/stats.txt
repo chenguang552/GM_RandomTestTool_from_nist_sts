@@ -2,79 +2,79 @@
 		---------------------------------------------
 		COMPUTATIONAL INFORMATION:
 		---------------------------------------------
-		(b) n value = 1000000
+		(b) n value = 100
 		---------------------------------------------
-SUCCESS		p_value = 0.664766
+SUCCESS		p_value = 0.122889
 
 			      RUNSDISTRIBUTION TEST
 		---------------------------------------------
 		COMPUTATIONAL INFORMATION:
 		---------------------------------------------
-		(b) n value = 1000000
+		(b) n value = 100
 		---------------------------------------------
-SUCCESS		p_value = 0.971967
+SUCCESS		p_value = 0.829170
 
 			      RUNSDISTRIBUTION TEST
 		---------------------------------------------
 		COMPUTATIONAL INFORMATION:
 		---------------------------------------------
-		(b) n value = 1000000
+		(b) n value = 100
 		---------------------------------------------
-SUCCESS		p_value = 0.208497
+SUCCESS		p_value = 0.233571
 
 			      RUNSDISTRIBUTION TEST
 		---------------------------------------------
 		COMPUTATIONAL INFORMATION:
 		---------------------------------------------
-		(b) n value = 1000000
+		(b) n value = 100
 		---------------------------------------------
-SUCCESS		p_value = 0.672803
+SUCCESS		p_value = 0.364047
 
 			      RUNSDISTRIBUTION TEST
 		---------------------------------------------
 		COMPUTATIONAL INFORMATION:
 		---------------------------------------------
-		(b) n value = 1000000
+		(b) n value = 100
 		---------------------------------------------
-SUCCESS		p_value = 0.372069
+SUCCESS		p_value = 0.145670
 
 			      RUNSDISTRIBUTION TEST
 		---------------------------------------------
 		COMPUTATIONAL INFORMATION:
 		---------------------------------------------
-		(b) n value = 1000000
+		(b) n value = 100
 		---------------------------------------------
-SUCCESS		p_value = 0.229860
+SUCCESS		p_value = 0.246811
 
 			      RUNSDISTRIBUTION TEST
 		---------------------------------------------
 		COMPUTATIONAL INFORMATION:
 		---------------------------------------------
-		(b) n value = 1000000
+		(b) n value = 100
 		---------------------------------------------
-SUCCESS		p_value = 0.978403
+SUCCESS		p_value = 0.056440
 
 			      RUNSDISTRIBUTION TEST
 		---------------------------------------------
 		COMPUTATIONAL INFORMATION:
 		---------------------------------------------
-		(b) n value = 1000000
+		(b) n value = 100
 		---------------------------------------------
-SUCCESS		p_value = 0.572873
+SUCCESS		p_value = 0.203260
 
 			      RUNSDISTRIBUTION TEST
 		---------------------------------------------
 		COMPUTATIONAL INFORMATION:
 		---------------------------------------------
-		(b) n value = 1000000
+		(b) n value = 100
 		---------------------------------------------
-SUCCESS		p_value = 0.653379
+SUCCESS		p_value = 0.028514
 
 			      RUNSDISTRIBUTION TEST
 		---------------------------------------------
 		COMPUTATIONAL INFORMATION:
 		---------------------------------------------
-		(b) n value = 1000000
+		(b) n value = 100
 		---------------------------------------------
-SUCCESS		p_value = 0.176984
+SUCCESS		p_value = 0.051060
 

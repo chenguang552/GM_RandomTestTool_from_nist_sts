@@ -339,7 +339,7 @@ readHexDigitsInBinaryFormat(FILE *fp)
 		fprintf(freqfp, "\t\tBITSREAD = %d 0s = %d 1s = %d\n", bitsRead, num_0s, num_1s);
 		
 		nist_test_suite();
-		
+		printf("      %.2f%%\n",((double)(i+1)*100/tp.numOfBitStreams));
 	}
 	free(epsilon);
 }
@@ -382,17 +382,17 @@ convertToBits(BYTE *x, int xBitLength, int bitsNeeded, int *num_0s, int *num_1s,
 
 
 void
-openOutputStreams(int option, int bitStreamNum)
+openOutputStreams(int option, int bitStreamNum, char* dir)
 {
 	int		i, numOfBitStreams, numOfOpenFiles = 0;
 	char	freqfn[200], summaryfn[200], statsDir[200], resultsDir[200];
 	
-	sprintf(freqfn, "experiments/%s/freq.txt", generatorDir[option]);
+	sprintf(freqfn, "%s//experiments//%s//freq.txt", dir, generatorDir[option]);
 	if ( (freqfp = fopen(freqfn, "w")) == NULL ) {
 		printf("\t\tMAIN:  Could not open freq file: <%s>", freqfn);
 		exit(-1);
 	}
-	sprintf(summaryfn, "experiments/%s/finalAnalysisReport.txt", generatorDir[option]);
+	sprintf(summaryfn, "%s//experiments/%s/finalAnalysisReport.txt", dir, generatorDir[option]);
 	if ( (summary = fopen(summaryfn, "w")) == NULL ) {
 		printf("\t\tMAIN:  Could not open stats file: <%s>", summaryfn);
 		exit(-1);
@@ -400,8 +400,8 @@ openOutputStreams(int option, int bitStreamNum)
 	
 	for( i=1; i<=NUMOFTESTS; i++ ) {
 		if ( testVector[i] == 1 ) {
-			sprintf(statsDir, "experiments/%s/%s/stats.txt", generatorDir[option], testNames[i]);
-			sprintf(resultsDir, "experiments/%s/%s/results.txt", generatorDir[option], testNames[i]);
+			sprintf(statsDir, "%s//experiments/%s/%s/stats.txt", dir, generatorDir[option], testNames[i]);
+			sprintf(resultsDir, "%s//experiments/%s/%s/results.txt", dir, generatorDir[option], testNames[i]);
 			if ( (stats[i] = fopen(statsDir, "w")) == NULL ) {	/* STATISTICS LOG */
 				printf("ERROR: LOG FILES COULD NOT BE OPENED.\n");
 				printf("       MAX # OF OPENED FILES HAS BEEN REACHED = %d\n", numOfOpenFiles);
@@ -526,50 +526,127 @@ nist_test_suite()
 	// if ( (testVector[0] == 1) || (testVector[TEST_LINEARCOMPLEXITY] == 1) )
 	// 	LinearComplexity(tp.linearComplexitySequenceLength, tp.n);
 
+	double start, end;
 	// 1
 	if ( (testVector[0] == 1) || (testVector[TEST_FREQUENCY] == 1) ) 
+	{
+		start = clock();
 		Frequency(tp.n);
+		end = clock();
+		useTime[TEST_FREQUENCY] += (end - start);
+		// printf("%f  %f   %f\n",start, end, end - start);
+	}
 	// 2 
 	if ( (testVector[0] == 1) || (testVector[TEST_BLOCK_FREQUENCY] == 1) ) 
+	{
+		start = clock();
 		BlockFrequency(tp.blockFrequencyBlockLength, tp.n);
+		end = clock();
+		useTime[TEST_BLOCK_FREQUENCY] += (end - start);
+	}
 	// 3
 	if ( (testVector[0] == 1) || (testVector[TEST_POKERDETECT] == 1) )
+	{
+		start = clock();
 		PokerDetect(tp.pokerDetectMValue, tp.n);// 扑克检测  M值
+		end = clock();
+		useTime[TEST_POKERDETECT] += (end - start);
+	}
 	// 4
 	if ( (testVector[0] == 1) || (testVector[TEST_SERIAL] == 1) )
+	{	
+		start = clock();
 		Serial(tp.serialBlockLength,tp.n);
+		end = clock();
+		useTime[TEST_SERIAL] += (end - start);
+	}
 	// 5
 	if ( (testVector[0] == 1) || (testVector[TEST_RUNS] == 1) )
+	{
+		start = clock();
 		Runs(tp.n); 
+		end = clock();
+		useTime[TEST_RUNS] += (end - start);
+	}
 	// 6
 	if ( (testVector[0] == 1) || (testVector[TEST_RUNSDISTRIBUTION] == 1) )
+	{	
+		start = clock();
 		RunsDistribution(tp.n);					// 游程分布检测
+		end = clock();
+		useTime[TEST_RUNSDISTRIBUTION] += (end - start);
+	}
 	// 7
 	if ( (testVector[0] == 1) || (testVector[TEST_LONGEST_RUN] == 1) )
+	{	
+		start = clock();
 		LongestRunOfOnes(tp.n);
+		end = clock();
+		useTime[TEST_LONGEST_RUN] += (end - start);
+	}
 	// 8
 	if ( (testVector[0] == 1) || (testVector[TEST_BINARYDERIVATE] == 1) )
+	{	
+		start = clock();
 		BinaryDerivate(tp.binaryDerivateKValue, tp.n);				// 二元推导检测 k值
+		end = clock();
+		useTime[TEST_BINARYDERIVATE] += (end - start);
+	}
 	// 9
 	if ( (testVector[0] == 1) || (testVector[TEST_SELFCORRELATION] == 1) )
+	{	
+		start = clock();
 		SelfCorrelation(tp.selfCorrelationDValue, tp.n);				// 自相关检测 d值
+		end = clock();
+		useTime[TEST_SELFCORRELATION] += (end - start);
+	}
 	// 10
 	if ( (testVector[0] == 1) || (testVector[TEST_RANK] == 1) )
+	{	
+		start = clock();
 		Rank(tp.n);
+		end = clock();
+		useTime[TEST_RANK] += (end - start);
+	}
 	// 11
 	if ( (testVector[0] == 1) || (testVector[TEST_CUSUM] == 1) )
+	{	
+		start = clock();
 		CumulativeSums(tp.n);
+		end = clock();
+		useTime[TEST_CUSUM] += (end - start);
+	}
 	// 12
 	if ( (testVector[0] == 1) || (testVector[TEST_APEN] == 1) )
+	{	
+		start = clock();
 		ApproximateEntropy(tp.approximateEntropyBlockLength, tp.n);
+		end = clock();
+		useTime[TEST_APEN] += (end - start);
+	}
 	// 13
 	if ( (testVector[0] == 1) || (testVector[TEST_LINEARCOMPLEXITY] == 1) )
+	{	
+		start = clock();
 		LinearComplexity(tp.linearComplexitySequenceLength, tp.n);
+		end = clock();
+		useTime[TEST_LINEARCOMPLEXITY] += (end - start);
+	}
 	// 14
 	if ( (testVector[0] == 1) || (testVector[TEST_UNIVERSAL] == 1) )
+	{	
+		start = clock();
 		Universal(tp.n);
+		end = clock();
+		useTime[TEST_UNIVERSAL] += (end - start);
+	}
 	// 15
 	if ( (testVector[0] == 1) || (testVector[TEST_FFT] == 1) )
+	{	
+		start = clock();
 		DiscreteFourierTransform(tp.n);	
+		end = clock();
+		useTime[TEST_FFT] += (end - start);
+	}
 	
 }

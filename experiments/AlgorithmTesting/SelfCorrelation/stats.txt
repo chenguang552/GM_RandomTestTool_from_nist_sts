@@ -3,88 +3,88 @@
 		COMPUTATIONAL INFORMATION:
 		---------------------------------------------
 		(a) d value = 8
-		(b) n value = 1000000
+		(b) n value = 100
 		---------------------------------------------
-SUCCESS		p_value = 0.465388
+SUCCESS		p_value = 0.297147
 
 			      SELFCORRELATION TEST
 		---------------------------------------------
 		COMPUTATIONAL INFORMATION:
 		---------------------------------------------
 		(a) d value = 8
-		(b) n value = 1000000
+		(b) n value = 100
 		---------------------------------------------
-SUCCESS		p_value = 0.767229
+SUCCESS		p_value = 0.404248
 
 			      SELFCORRELATION TEST
 		---------------------------------------------
 		COMPUTATIONAL INFORMATION:
 		---------------------------------------------
 		(a) d value = 8
-		(b) n value = 1000000
+		(b) n value = 100
 		---------------------------------------------
-SUCCESS		p_value = 0.344147
+SUCCESS		p_value = 1.000000
 
 			      SELFCORRELATION TEST
 		---------------------------------------------
 		COMPUTATIONAL INFORMATION:
 		---------------------------------------------
 		(a) d value = 8
-		(b) n value = 1000000
+		(b) n value = 100
 		---------------------------------------------
-SUCCESS		p_value = 0.399786
+SUCCESS		p_value = 1.000000
 
 			      SELFCORRELATION TEST
 		---------------------------------------------
 		COMPUTATIONAL INFORMATION:
 		---------------------------------------------
 		(a) d value = 8
-		(b) n value = 1000000
+		(b) n value = 100
 		---------------------------------------------
-SUCCESS		p_value = 0.824313
+SUCCESS		p_value = 0.297147
 
 			      SELFCORRELATION TEST
 		---------------------------------------------
 		COMPUTATIONAL INFORMATION:
 		---------------------------------------------
 		(a) d value = 8
-		(b) n value = 1000000
+		(b) n value = 100
 		---------------------------------------------
-SUCCESS		p_value = 0.662835
+SUCCESS		p_value = 0.297147
 
 			      SELFCORRELATION TEST
 		---------------------------------------------
 		COMPUTATIONAL INFORMATION:
 		---------------------------------------------
 		(a) d value = 8
-		(b) n value = 1000000
+		(b) n value = 100
 		---------------------------------------------
-SUCCESS		p_value = 0.339070
+SUCCESS		p_value = 0.676657
 
 			      SELFCORRELATION TEST
 		---------------------------------------------
 		COMPUTATIONAL INFORMATION:
 		---------------------------------------------
 		(a) d value = 8
-		(b) n value = 1000000
+		(b) n value = 100
 		---------------------------------------------
-SUCCESS		p_value = 0.855582
+SUCCESS		p_value = 0.531615
 
 			      SELFCORRELATION TEST
 		---------------------------------------------
 		COMPUTATIONAL INFORMATION:
 		---------------------------------------------
 		(a) d value = 8
-		(b) n value = 1000000
+		(b) n value = 100
 		---------------------------------------------
-SUCCESS		p_value = 0.718846
+SUCCESS		p_value = 0.834827
 
 			      SELFCORRELATION TEST
 		---------------------------------------------
 		COMPUTATIONAL INFORMATION:
 		---------------------------------------------
 		(a) d value = 8
-		(b) n value = 1000000
+		(b) n value = 100
 		---------------------------------------------
-SUCCESS		p_value = 0.159129
+SUCCESS		p_value = 0.531615
 

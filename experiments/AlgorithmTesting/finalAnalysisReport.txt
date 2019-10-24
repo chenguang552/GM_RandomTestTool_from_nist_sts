@@ -1,27 +1,27 @@
 ------------------------------------------------------------------------------
 RESULTS FOR THE UNIFORMITY OF P-VALUES AND THE PROPORTION OF PASSING SEQUENCES
 ------------------------------------------------------------------------------
-   generator is <all.bin>
+   generator is <rand.bin>
 ------------------------------------------------------------------------------
- C1  C2  C3  C4  C5  C6  C7  C8  C9 C10  P-VALUE  PROPORTION  STATISTICAL TEST
+ C1  C2  C3  C4  C5  C6  C7  C8  C9 C10  P-VALUE  PROPORTION    USETIME    STATISTICAL TEST
 ------------------------------------------------------------------------------
-  1   0   0   1   1   1   1   0   1   4  0.213309     10/10      Frequency
-  1   1   0   0   2   2   1   1   1   1  0.911413     10/10      BlockFrequency
-  1   1   0   0   1   2   1   0   2   2  0.739918     10/10      CumulativeSums
-  1   0   1   2   1   2   0   0   1   2  0.739918     10/10      CumulativeSums
-  1   2   1   0   2   0   1   1   0   2  0.739918     10/10      Runs
-  2   0   2   1   0   1   1   0   1   2  0.739918      9/10      LongestRun
-  2   1   0   1   0   2   1   0   2   1  0.739918     10/10      Rank
-  0   1   0   2   2   1   1   1   1   1  0.911413     10/10      FFT
-  0   1   0   0   4   2   1   0   1   1  0.122325     10/10      Universal
-  0   2   4   1   1   0   0   1   1   0  0.122325     10/10      ApproximateEntropy
-  1   1   3   1   0   0   2   0   2   0  0.350485     10/10      Serial
-  1   0   2   1   3   0   0   2   0   1  0.350485     10/10      Serial
-  0   1   1   0   3   2   0   0   0   3  0.122325     10/10      LinearComplexity
-  2   0   1   2   2   0   0   1   1   1  0.739918     10/10      PokerDetect
-  0   1   2   1   0   1   3   0   0   2  0.350485     10/10      RunsDistribution
-  1   0   0   1   1   1   1   0   0   5  0.017912     10/10      BinaryDerivate
-  0   1   0   3   1   0   1   2   2   0  0.350485     10/10      SelfCorrelation
+  2   0   0   2   0   4   2   0   0   0  0.035174     10/10         1ms    Frequency
+  0   0   0   0   0   0   0   0   0  10  0.000000 *   10/10         0ms    BlockFrequency
+  2   0   1   1   1   1   0   2   0   2  0.739918     10/10         0ms    CumulativeSums
+  2   0   0   1   2   1   0   1   2   1  0.739918     10/10         0ms    CumulativeSums
+  3   1   1   1   0   0   1   0   1   2  0.534146     10/10         0ms    Runs
+ 10   0   0   0   0   0   0   0   0   0  0.000000 *   10/10         0ms    LongestRun
+ 10   0   0   0   0   0   0   0   0   0  0.000000 *    0/10         1ms  * Rank
+  0   3   0   0   0   0   7   0   0   0  0.000000 *   10/10         0ms    FFT
+  0  10   0   0   0   0   0   0   0   0  0.000000 *   10/10         0ms    Universal
+  0   0   0   0   0   0   0   0   0  10  0.000000 *   10/10         5ms    ApproximateEntropy
+  0   0   0   0  10   0   0   0   0   0  0.000000 *   10/10       149ms    Serial
+  0   0   0   0   9   0   0   0   0   1  0.000000 *   10/10       149ms    Serial
+  0   0   0   0   0   0   0   0   0   0  0.350485      0/10         0ms  * LinearComplexity
+  4   0   0   0   0   0   6   0   0   0  0.000003 *    9/10         0ms    PokerDetect
+  3   2   3   1   0   0   0   0   1   0  0.122325     10/10         2ms    RunsDistribution
+  2   0   0   1   3   0   3   1   0   0  0.122325     10/10         1ms    BinaryDerivate
+  0   0   3   0   1   2   1   0   1   2  0.350485     10/10         0ms    SelfCorrelation
 
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
